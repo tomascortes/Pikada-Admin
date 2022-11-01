@@ -51,6 +51,15 @@ export default {
   methods: {
     async updateOrders() {
       this.monthOrders = await monthDates(this.month, this.year);
+      this.monthOrders.sort((a, b) => {
+        if (a.date_closed < b.date_closed) {
+          return -1;
+        }
+        if (a.date_closed > b.date_closed) {
+          return 1;
+        }
+        return 0;
+      });
     },
     async updateIncome() {
       this.monthIncome = await totalIncome(this.month, this.year);

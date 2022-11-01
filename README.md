@@ -1,5 +1,9 @@
 # pikada-admin
 
+Project made in Vue to parse data from external API. Intended to healp possible local administrators in their accountability managment.
+
+You can check it in https://spontaneous-khapse-813134.netlify.app/
+
 ## Project setup
 ```
 npm install
