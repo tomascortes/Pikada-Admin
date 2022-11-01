@@ -44,4 +44,8 @@ body { margin: 0 !important; }
   margin-right: 5px;
   font-weight: 300;
 }
+
+.month-center{
+  margin-left: 5%;
+}
 </style>

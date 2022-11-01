@@ -34,13 +34,28 @@ div {
     color: white;
     border-color: $table-header-border;
   }
+  &:first-of-type .flex-row-short {
+    background: $table-header;
+    color: white;
+    border-color: $table-header-border;
+  }
   &.row:nth-child(odd) .flex-row {
+    background: $row-bg;
+  }
+  &.row:nth-child(odd) .flex-row-short {
     background: $row-bg;
   }
   &:hover {
     background: #F5F5F5;
     transition: 500ms;
   }
+}
+.flex-row-short {
+  width: calc(100% / 6);
+  text-align: center;
+  padding: 0.5em 0.5em;
+  border-right: solid 1px $table-border;
+  border-bottom: solid 1px $table-border;
 }
 
 .flex-row {
@@ -75,6 +90,19 @@ div {
       transition: 500ms;
     }
   }
+  .flex-row-short {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-bottom: solid 1px $table-border;
+    &:hover {
+      background: #F5F5F5;
+      transition: 500ms;
+    }
+  }
+  
 }
 
 .flex-cell {
