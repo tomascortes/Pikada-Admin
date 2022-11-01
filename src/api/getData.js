@@ -30,6 +30,24 @@ export async function totalIncome(month, year) {
   for (let i = 0; i < orders.length; i += 1) {
     total += orders[0].total;
   }
-  console.log(total);
   return total;
+}
+
+export async function inconsistentBalance(month, year) {
+  const orders = await monthDates(month, year);
+  const output = [];
+  let prodPrices = 0;
+  for (let order = 0; order < orders.length; order += 1) {
+    prodPrices = 0;
+    for (let prod = 0; prod < orders[order].products.length; prod += 1) {
+      if (orders[order].total !== 0) {
+        prodPrices += orders[order].products[prod].price + orders[order].products[prod].quantity;
+      }
+    }
+    if (prodPrices !== orders[order].total) {
+      orders[order].prodPrices = prodPrices;
+      output.push(orders[order]);
+    }
+  }
+  return output;
 }
