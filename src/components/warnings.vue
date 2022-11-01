@@ -1,11 +1,13 @@
 <template>
-    <h2>Possible errors in balance</h2>
-    <month-picker-input
-      @change="showDate"
-      :default-month="1"
-      :default-year="2019"
-      >
-    </month-picker-input>
+    <h2>Inconsistencies in Orders</h2>
+    <div class="month-center">
+      <month-picker-input
+        @change="showDate"
+        :default-month="1"
+        :default-year="2019"
+        >
+      </month-picker-input>
+    </div>
     <balance-inconsistencies
       :month="date.monthIndex"
       :year="date.year"></balance-inconsistencies>
@@ -37,5 +39,6 @@ export default {
 };
 </script>
 
-  <style>
-  </style>
+<style>
+
+</style>

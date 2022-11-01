@@ -1,11 +1,13 @@
 <template>
     <h2>Orders From {{date.month}} {{date.year}}</h2>
-    <month-picker-input
-      @change="showDate"
-      :default-month="1"
-      :default-year="2019"
-      >
-    </month-picker-input>
+    <div class="month-center">
+      <month-picker-input
+        @change="showDate"
+        :default-month="1"
+        :default-year="2019"
+        >
+      </month-picker-input>
+    </div>
     <orders-list
       :month="date.monthIndex"
       :year="date.year"></orders-list>

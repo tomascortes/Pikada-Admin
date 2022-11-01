@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Inconsistencies in orders</h1>
     <div v-if="warningOrders">
       <div class="table-wrapper">
         <div class="table-container" role="table" aria-label="Destinations">
