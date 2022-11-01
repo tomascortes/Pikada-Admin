@@ -83,5 +83,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./scss/table.scss"
+@import "./scss/table.scss";
 </style>
