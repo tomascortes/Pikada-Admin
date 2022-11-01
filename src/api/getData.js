@@ -1,19 +1,15 @@
 import axios from 'axios';
 
-export async function getData() {
-  console.log('geting data');
+async function getData() {
   const { data } = await axios({
     method: 'get',
     url: 'https://storage.googleapis.com/backupdatadev/ejercicio/ventas.json',
-  })
-    .catch((error) => {
-      console.log(error);
-    });
-  console.log('data fetched');
+  });
   return data;
 }
 
-export function monthDates(orders, month, year) {
+export async function monthDates(month, year) {
+  const orders = await getData();
   const output = [];
   let auxDate;
   for (let i = 0; i < orders.length; i += 1) {
@@ -22,19 +18,18 @@ export function monthDates(orders, month, year) {
       auxDate.getMonth() === month
       && auxDate.getFullYear() === year) {
       output.push(orders[i]);
-      console.log('siii');
     }
   }
 
   return output;
 }
 
-export function totalIncome(orders) {
+export async function totalIncome(month, year) {
+  const orders = await monthDates(month, year);
   let total = 0;
-  console.log(orders);
-  console.log(orders.length);
   for (let i = 0; i < orders.length; i += 1) {
-    total += orders.total;
+    total += orders[0].total;
   }
+  console.log(total);
   return total;
 }
