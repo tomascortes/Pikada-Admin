@@ -1,15 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h2>Orders From {{date.month}} {{date.year}}</h2>
+  <month-picker-input
+    @change="showDate"
+    :default-month="1"
+    :default-year="2019"
+    >
+  </month-picker-input>
+  <orders-list
+    :month="date.monthIndex"
+    :year="date.year"></orders-list>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import { MonthPickerInput } from 'vue-month-picker';
+import OrdersList from './components/OrdersList.vue';
+// import { getData } from './api/getData';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld,
+  components: { OrdersList, MonthPickerInput },
+  data() {
+    return {
+      date: {
+        month: null,
+        monthIndex: null,
+        year: null,
+        day: null,
+      },
+
+    };
+  },
+  methods: {
+    showDate(date) {
+      this.date = date;
+    },
   },
 };
 </script>
