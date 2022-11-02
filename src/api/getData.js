@@ -1,11 +1,5 @@
 import getData from '../database/database.json';
 
-// async function getData() {
-//   const data = require('./data.json');
-//   console.log(data);
-//   return data;
-// }
-
 export function monthDates(month, year) {
   const orders = getData;
   const output = [];
